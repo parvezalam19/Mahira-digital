@@ -11,7 +11,6 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const pathname = usePathname()
-  console.log((pathname))
 
   const [open, setOpen] = useState(false);
 

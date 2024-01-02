@@ -10,7 +10,7 @@ import { IoIosCall } from "react-icons/io";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const [open, setOpen] = useState(false);
 
@@ -20,6 +20,45 @@ const Navbar = () => {
     { name: "Service", href: "#" },
     { name: "Blog", href: "#" },
     { name: "Contact", href: "#" },
+  ];
+
+  const services = [
+    {
+      name: "SEO Services",
+      href: "#",
+    },
+    {
+      name: "Digital Marketing Course",
+      href: "#",
+    },
+    {
+      name: "Website Development",
+      href: "#",
+    },
+    {
+      name: "Google Ads",
+      href: "#",
+    },
+    {
+      name: "Digital Marketing Services",
+      href: "#",
+    },
+    {
+      name: "SEO Courses",
+      href: "#",
+    },
+    {
+      name: "Instagram Marketing",
+      href: "#",
+    },
+    {
+      name: "Search Engine Marketing",
+      href: "#",
+    },
+    {
+      name: "Content Writing",
+      href: "#",
+    },
   ];
 
   useEffect(() => {
@@ -34,9 +73,7 @@ const Navbar = () => {
         }
       });
     }
-  }, [])
-
-
+  }, []);
 
   return (
     <div>
@@ -80,7 +117,11 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className={`justify-between hidden md:flex  text-white py-3 px-[100px] ${pathname !== '/' ? "bg-[#ff4800]" : "bg-transparent"} `}>
+        <div
+          className={`justify-between hidden md:flex  text-white py-3 px-[100px] ${
+            pathname !== "/" ? "bg-[#ff4800]" : "bg-transparent"
+          } `}
+        >
           <div>
             {/* <Image width={150} height={70} className='w-[150px] h-[80px]' src={"/assets/home/logo.png"} /> */}
           </div>
@@ -89,27 +130,50 @@ const Navbar = () => {
               <div className="hidden lg:block" key={item.name}>
                 {item.name === "Service" ? (
                   <Link href="#" className={`text-white menu_hover`}>
-                    {item?.name}
-                    <ul className="bg-white shadow-lg absolute top-[100%] right-[21%] z-50 flex flex-col items-start p-5 gap-y-3  treatment_menu">
-                      <div className="triangle"></div>
-                      <li className="text-[14px]">
-                        <Link href="/SEO"> SEO Services </Link>
-                      </li>
-                      <li className="text-[14px]">
-                        <Link href="/development">Website Development</Link>
-                      </li>
-                      <li className="text-[14px]">
-                        <Link href="/google-ads">Google Ads</Link>
-                      </li>
-                      <li className="text-[14px]">
-                        <Link href="/marketing">
-                          Digital Marketing Services
-                        </Link>
-                      </li>
-                      <li className="text-[14px]">
-                        <Link href="/courses">SEO Course</Link>
-                      </li>
-                    </ul>
+                    <div className="">
+                      <div className="group relative cursor-pointer ">
+                        <div className="flex">
+                          <a
+                            className="menu-hover   text-base font-medium  "
+                            onClick=""
+                          >
+                            Services
+                          </a>
+                          <span>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              className="h-6 w-6"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <ul
+                          className="invisible absolute z-50  top-[25px] flex  flex-col w-[200px] bg-gray-100  text-gray-800 shadow-xl group-hover:visible"
+                          onClick=""
+                        >
+                          {services?.map((item, i) => {
+                            return (
+                              <li className="" key={i}>
+                                <Link
+                                  href={item?.href}
+                                  className="   border-gray-200 w-full h-[40px] border-b-[2px] px-2  hover:bg-[#ff4800] hover:text-white flex items-center  "
+                                >
+                                  {item?.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    </div>
                   </Link>
                 ) : (
                   <Link href={item?.href} className={`text-white`}>
@@ -200,5 +264,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-

@@ -127,6 +127,8 @@ nav li{
   /* Hiding the pseudo-element */
   transition: all 1s ease-in-out;
   cursor: pointer;
+  color: black;
+  
 }
 
 .top_card::before {
@@ -151,6 +153,9 @@ nav li{
 }
 
 
+.gradient_bg{
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
 
 
 
@@ -211,7 +216,21 @@ nav li{
 
 
 
+/* services pages */
 
+.primary-btn {
+  position: relative;
+  background-image: linear-gradient(90deg,#ee0979 0,#ff6a00 51%,#ee0979);
+  padding: 12px 24px;
+  text-align: center;
+  transition: .5s;
+  background-size: 200% auto;
+  color: #fff;
+  font-weight: 700;
+  z-index: 1;
+  border-radius: 43px 43px 43px 12px;
+
+}
 
 
 

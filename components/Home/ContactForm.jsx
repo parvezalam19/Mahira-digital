@@ -1,29 +1,64 @@
+"use client";
 import React from "react";
+import { useForm } from "react-hook-form";
 
 const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (data, e) => {
+    e.preventDefault();
+
+    try {
+      const formData = new FormData();
+      formData.append("name", data?.name);
+      formData.append("email", data?.email);
+      formData.append("phone", data?.phone);
+      formData.append("message", data?.message);
+      formData.append("action", "addItem");
+
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbw1u3Uw_thmkXdE4vURuHI_cTml8g4n6dMJSYO5yY7SD1ogEhs7yBEJby1bZ9thr-iHvQ/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        console.log("Data sent successfully.", response);
+      } else {
+        console.error("Failed to send data to Google Sheets API.");
+      }
+    } catch (error) {
+      console.error("Error occurred:", error);
+    }
+  };
+
   return (
     <div class="grid md:grid-cols-2 items-center overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-3xl max-w-6xl mx-auto bg-white my-6 font-[sans-serif]">
       <div class="sm:p-10 max-sm:px-4 max-sm:py-8 bg-gray-900">
         <h2 class="text-3xl font-extrabold text-white">
-        Don't Hesitate To Get In <span class="text-yellow-500">Touch</span> With Us
-
+          Don't Hesitate To Get In <span class="text-yellow-500">Touch</span>{" "}
+          With Us
         </h2>
         <p class="text-sm text-gray-400 mt-3">
-        Allow us to work for you. To contact us, please fill out the form below.
-
+          Allow us to work for you. To contact us, please fill out the form
+          below.
         </p>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div class="space-y-4 mt-8">
             <input
               type="text"
+              name="name"
               placeholder="Full Name"
-              class="px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
+              {...register("name")}
+              className="px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
             />
-            {/* <input
-              type="text"
-              placeholder="Street"
-              class="px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
-            /> */}
+
             <div class="grid grid-cols-2 gap-6">
               <input
                 type="text"
@@ -39,23 +74,51 @@ const ContactForm = () => {
             </div>
             <input
               type="number"
+              name="phone"
               placeholder="Phone No."
-              class="px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
+              {...register("phone", {
+                required: "Phone number is required",
+                minLength: {
+                  value: 10,
+                  message: "Phone number should be at least 10 digits",
+                },
+                pattern: {
+                  value: /^[0-9]+$/,
+                  message: "Please enter a valid phone number",
+                },
+              })}
+              className="px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
             />
+            {errors.phone && (
+              <p className="text-red-500 text-sm">{errors.phone.message}</p>
+            )}
 
             <input
+              name="email"
               type="email"
               placeholder="Email"
-              class="px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Invalid email address",
+                },
+              })}
+              className="px-2 py-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
             />
+            {errors.email && (
+              <p className="text-red-500 text-sm">{errors.email.message}</p>
+            )}
 
             <textarea
-              placeholder="Your Query"
-              class="px-2 pt-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
-            ></textarea>
+              name="message"
+              placeholder="Your Message"
+              {...register("message")}
+              className="px-2 pt-3 bg-transparent text-white w-full text-sm border-b border-gray-400 focus:border-white outline-none"
+            />
           </div>
           <button
-            type="button"
+            type="submit"
             class="mt-8 flex items-center justify-center text-sm w-full rounded px-4 py-2.5 font-semibold bg-[#ff4800] text-white hover:bg-yellow-700"
           >
             <svg
@@ -78,13 +141,11 @@ const ContactForm = () => {
         </form>
         <ul class="mt-4 flex justify-center lg:space-x-6 max-lg:flex-col max-lg:items-center max-lg:space-y-2 ">
           <li class="flex items-center text-white">
-    
             <a href="#" class="text-current text-sm ml-3">
               <strong> info@mahiradigital.com</strong>
             </a>
           </li>
           <li class="flex items-center text-white">
-       
             <a href="#" class="text-current text-sm ml-3">
               <strong>+91 9953962966</strong>
             </a>
@@ -92,7 +153,11 @@ const ContactForm = () => {
         </ul>
       </div>
       <div class="z-10 relative h-full max-md:min-h-[350px]">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.020887501442!2d77.07804827469597!3d28.6291360756666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3c5a3b3ed73%3A0x8a3cea5422103199!2sMahira%20Digital%2C%20SEO%20Company%20in%20Delhi%20-%20Digital%20Marketing%20Agency%2C%20SEO%20Agency%20in%20Delhi%20NCR%2C%20SEO%20services%20in%20Delhi!5e0!3m2!1sen!2sin!4v1701071915182!5m2!1sen!2sin" className="w-full h-full"    loading="lazy" ></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.020887501442!2d77.07804827469597!3d28.6291360756666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3c5a3b3ed73%3A0x8a3cea5422103199!2sMahira%20Digital%2C%20SEO%20Company%20in%20Delhi%20-%20Digital%20Marketing%20Agency%2C%20SEO%20Agency%20in%20Delhi%20NCR%2C%20SEO%20services%20in%20Delhi!5e0!3m2!1sen!2sin!4v1701071915182!5m2!1sen!2sin"
+          className="w-full h-full"
+          loading="lazy"
+        ></iframe>
       </div>
     </div>
   );

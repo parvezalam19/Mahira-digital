@@ -52,7 +52,7 @@ const ClientLogo = () => {
   };
   return (
     <>
-      <div  className="my-10"  >
+      <div  className="my-10 px-10"  >
         <h1 className=" font-semibold text-center my-5  md:text-[36px] text-[24px]" >
         Clients Who Trust Our SEO Agency in Delhi
         </h1>

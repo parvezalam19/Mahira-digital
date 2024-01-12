@@ -1,31 +1,20 @@
 import Image from "next/image";
 import React from "react";
-import MarketingServicesCards from "../custom/MarketingCervicesCards";
 
-const Homebanner = () => {
+const MarketingServicesCards = () => {
   return (
-    <>
-      <div className="home_banner p-5  md:px-[100px] ">
-        <h1 className="md:text-[50px] text-[24px] md:mt-40 font-bold text-white">
-          Digital Marketing Agency <br />
-          in Delhi NCR - <span className="text-[#ff4800]"> Mahira Digital</span>
-        </h1>
-        <p className="text-white md:w-[500px]">
-        Mahira Digital Marketing Agency is the one-stop solution for all your digital marketing services requirement in Delhi NCR.
-
-
-        </p>
-        {/* <button className=" font-medium rounded-[25px] mt-5 outline-none border-none px-[30px] py-[12px] text-white bg-[#ff4800]">
-          Contact Us
-        </button> */}
-   <div className=" grid md:grid-cols-3  grid-cols-1 mt-10    ">
+    <div className=" grid gap-x-5  md:grid-cols-3   grid-cols-1 mt-10    ">
       <div className="col-span-1 md:border-l-2 border-b-2 md:border-b-0  border-[#ff4800]   py-5 md:px-5 top_card ">
+    
+    <div className=" flex justify-center items-center" >
+
         <Image
-          width={100}
-          height={100}
-          className="w-[60px] h-[60px]  "
+          width={150}
+          height={150}
+          className="w-[100px] h-[100px]  "
           src={"/assets/home/service/seo.png"}
         />
+    </div>
         <h1 className="text-white font-bold my-3">
           SEO Services, Search Engine Optimization.
         </h1>
@@ -41,12 +30,14 @@ const Homebanner = () => {
         </ul>
       </div>
       <div className=" col-span-1 md:border-l-2 border-b-2 md:border-b-0  border-[#ff4800] py-5 md:px-5 top_card ">
+      <div className=" flex justify-center items-center" >
         <Image
-          width={100}
-          height={100}
-          className="w-[60px] h-[60px]  "
+          width={150}
+          height={150}
+          className="w-[100px] h-[100px]  "
           src={"/assets/home/service/social_add.png"}
         />
+</div>
         <h1 className="text-white font-bold my-3">
           Social Media Marketing Services
         </h1>
@@ -64,12 +55,15 @@ const Homebanner = () => {
         </ul>
       </div>
       <div className="col-span-1 md:border-l-2 border-b-2 md:border-b-0  border-[#ff4800] py-5 md:px-5 top_card">
+      <div className=" flex justify-center items-center" >
         <Image
-          width={100}
-          height={100}
-          className="w-[60px] h-[60px]  "
+          width={150}
+          height={150}
+          className="w-[100px] h-[100px]  "
           src={"/assets/home/service/webdev.png"}
         />
+</div>
+      
         <h1 className="text-white font-bold my-3">
           Website Design and Development Service
         </h1>
@@ -84,9 +78,8 @@ const Homebanner = () => {
           <li>Website maintenance and support services</li>
         </ul>
       </div>
-    </div>      </div>
-    </>
+    </div>
   );
 };
 
-export default Homebanner;
+export default MarketingServicesCards;

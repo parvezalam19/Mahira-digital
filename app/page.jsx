@@ -9,8 +9,14 @@ import TestimonialSlider from "@/components/Home/TestimonialSlider";
 import LatestBlogs from "@/components/Home/LatestBlogs";
 import ContactForm from "@/components/Home/ContactForm";
 import ClientSlider from "@/components/sliders/ClientSlider";
+import { Testimonial } from "@/components/Home/Testimonial";
+import Channel from "@/components/Home/Channel";
+import WebProgress from "@/components/custom/WebProgress";
+import { FAQ } from "@/components/custom/FAQ";
+import { homeFaq } from "@/components/dummy/data";
 
 export default function Home() {
+  
   return (
     <>
       <Head>
@@ -30,16 +36,17 @@ export default function Home() {
           <AboutSection />
           <br />
         </div>
+        <WebProgress/>
         <ServiceSection />
-        <LatestVideos />
+        <Channel/>
         <ContactBanner />
         <div className="px-5  md:px-10">
         <ClientSlider/>
         </div>
 
-        <TestimonialSlider />
-        
+        <Testimonial/>
         <LatestBlogs />
+        <FAQ data={homeFaq}/>
         <ContactForm />
       </main>
     </>

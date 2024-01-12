@@ -73,7 +73,7 @@ const ServiceSection = () => {
 
 
     return (
-        <div className="md:my-20  p-2 md:p-10  bg-[#f2f6f9] ">
+        <div className="md:my-10  p-2 md:p-10  bg-[#f2f6f9] ">
             <div className="section-title">
                 <h1 className="text-center md:text-[30px] text-[24px] mt-10 font-semibold " >We Offer Professional Solutions</h1>
                 <p className="text-[14px] text-[#57647c] text-center " >
@@ -88,8 +88,8 @@ const ServiceSection = () => {
 
                         serviceCards?.map((item, i) => (
                             <>
-                                <Link href="#" className=" service_card flex md:w-[350px] h-auto md:h-[350px] my-3 md:my-10 flex-col p-5 rounded-md bg-white " key={`${i + item.title}`}>
-                                    <div className="w-[75px] h-[75px] ">
+                                <Link href="#" className=" text-center justify-center service_card flex md:w-[350px] h-auto md:h-[350px] my-3 md:my-3 flex-col p-5 rounded-md bg-white " key={`${i + item.title}`}>
+                                    <div className="w-full h-[75px] flex justify-center  ">
                                         <Image alt="seo" width={75} height={75} className="w-[75px] h-[75px] bg-[#ff480] rounded-md" src={item?.img} />
                                     </div>
                                     <h2 className="md:text-[20px]   text-[18px] my-4 font-semibold" >

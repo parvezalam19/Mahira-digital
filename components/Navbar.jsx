@@ -8,6 +8,11 @@ import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
 import { usePathname } from "next/navigation";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -16,48 +21,56 @@ const Navbar = () => {
 
   const navigation = [
     { name: "Home ", href: "/" },
-    { name: "About", href: "#" },
+    { name: "About", href: "/about" },
+    { name: "Portfolio", href: "/portfolio" },
+
     { name: "Service", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
+    { name: "Career", href: "/career" },
   ];
 
   const services = [
     {
       name: "SEO Services",
-      href: "#",
+      href: "/seo-services",
     },
     {
       name: "Digital Marketing Course",
-      href: "#",
+      href: "/digital-marketing-course",
     },
     {
       name: "Website Development",
-      href: "#",
+      href: "/web-development",
     },
     {
       name: "Google Ads",
-      href: "#",
+      href: "/ppc-company-delhi",
     },
     {
       name: "Digital Marketing Services",
-      href: "#",
+      href: "/digital-marketing-agency",
     },
     {
       name: "SEO Courses",
-      href: "#",
+      href: "/seo-course",
     },
     {
       name: "Instagram Marketing",
-      href: "#",
+      href: "/instagram-marketing",
     },
     {
       name: "Search Engine Marketing",
-      href: "#",
+      href: "/search-engine-marketing",
     },
     {
+      name: "Online Reputation Management",
+      href: "/online_reputation_management",
+    },
+
+    {
       name: "Content Writing",
-      href: "#",
+      href: "/content-marketing",
     },
   ];
 
@@ -79,22 +92,65 @@ const Navbar = () => {
     <div>
       <nav>
         <div className="md:flex justify-between items-center hidden z-[200]  bg-white md:px-[50px] h-[70px]">
-          <div className="flex gap-x-10 items-start  ">
-            <span className=" font-mono text-[20px]">+91-8239773529</span>
-          </div>
           <div>
             <Image
               width={200}
               height={60}
-              src={"/assets/home/logo.png"}
+              src={"/assets/logo.png"}
               className="w-[180px] h-[60px]"
             />
           </div>
-          <div className="flex justify-between gap-x-9">
-            {/* <h1 className='text-[16px] font-semibold'></h1> */}
+          <div className="flex gap-x-10 items-start  ">
+            <span className=" font-mono flex items-center text-[16px]">
+              {" "}
+              <IoIosCall /> +91-8239773529
+            </span>
+            <span className=" font-mono flex items-center text-[16px]">
+              {" "}
+              <IoMdMail /> info@mahiradigital.com
+            </span>
+
             <button className="text-[#ff4800] main-Light_border rounded-[25px]  md:px-[20px] md:py-[5px] hover:bg-[#ff4800] hover:text-white ">
               Book an Appointment
             </button>
+          </div>
+          <div className="flex justify-between gap-x-9">
+            {/* <h1 className='text-[16px] font-semibold'></h1> */}
+
+            <div className="flex  gap-x-4">
+              <Link
+                href="#"
+                className="w-[35px] h-[35px] flex justify-center items-center bg-[#557dbc] rounded-[25px] text-white  "
+              >
+                <span>
+                  <FaFacebookF />
+                </span>
+              </Link>
+              <Link
+                href="#"
+                className="w-[35px] h-[35px] flex justify-center items-center bg-[#405DE6] rounded-[25px] text-white "
+              >
+                <span>
+                  <FaInstagram />
+                </span>
+              </Link>{" "}
+              <Link
+                href="#"
+                className="w-[35px] h-[35px] flex justify-center items-center bg-[#0077b5] rounded-[25px] text-white "
+              >
+                <span>
+                  <FaLinkedinIn />
+                </span>
+              </Link>{" "}
+              <Link
+                href="#"
+                className="w-[35px] h-[35px] flex justify-center items-center bg-[#1DA1F2] rounded-[25px] text-white "
+              >
+                <span>
+                  <FaTwitter />
+                </span>
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -176,7 +232,12 @@ const Navbar = () => {
                     </div>
                   </Link>
                 ) : (
-                  <Link href={item?.href} className={`text-white`}>
+                  <Link
+                    href={item?.href}
+                    className={`text-white ${
+                      item.href === pathname ? "active-link" : ""
+                    }`}
+                  >
                     {item?.name}
                   </Link>
                 )}
@@ -186,8 +247,8 @@ const Navbar = () => {
         </div>
       </nav>
 
-      <div className="fixed left-[-10px] top-[30%] z-[100] ">
-        <Link
+      <div className="fixed left-[20px] bottom-[10%] z-[100] ">
+        {/* <Link
           href="#"
           className="md:w-[50px] md:h-[40px] w-[40px] h-[30px] block cursor-pointer "
         >
@@ -219,7 +280,10 @@ const Navbar = () => {
             className="w-full h-full"
             src={"/assets/home/instagram.png"}
           />
-        </Link>
+        </Link> */}
+        <button className=" font-medium rounded-[25px] mt-5 outline-none border-none px-[35px] py-[6px] text-white bg-[#ff4800]">
+          Get Quote
+        </button>
       </div>
 
       <div className="fixed right-[10px] bottom-[10%] z-[100] ">
@@ -264,3 +328,6 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+

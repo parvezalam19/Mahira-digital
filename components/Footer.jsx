@@ -89,13 +89,10 @@ const Footer = () => {
             width={150}
             height={70}
             className="w-[150px] h-[70px] rounded-md "
-            src={"/assets/home/logo.png"}
+            src={"/assets/f_logo.png"}
           />
           <p className="text-[14px] leading-6 text-white ">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias
-            aliquam, aliquid quidem laudantium cupiditate veritatis voluptas
-            dolore expedita ab animi, saepe facilis consequatur assumenda
-            similique accusamus esse dignissimos quasi deleniti.
+          Today the digital market is loaded with hurdles and challenges. The stiffness of competition in the market has made an online presence mandatory. When it comes to the success key for businesses in current times, online presence is something inevitable
           </p>
           <div className="flex  gap-x-4">
             <Link

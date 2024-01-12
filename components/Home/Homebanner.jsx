@@ -5,19 +5,19 @@ import MarketingServicesCards from "../custom/MarketingCervicesCards";
 const Homebanner = () => {
   return (
     <>
-      <div className="home_banner p-5  md:p-[100px] ">
+      <div className="home_banner p-5  md:px-[100px] ">
         <h1 className="md:text-[50px] text-[24px] md:mt-40 font-bold text-white">
           Digital Marketing Agency <br />
-          in Delhi NCR Mahira Digital
+          in Delhi NCR - <span className="text-[#ff4800]"> Mahira Digital</span>
         </h1>
         <p className="text-white md:w-[500px]">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus,
-          nisi. Illum recusandae fugit officiis aut blanditiis officia, illo
-          laudantium nobis!
+        Mahira Digital Marketing Agency is the one-stop solution for all your digital marketing services requirement in Delhi NCR.
+
+
         </p>
-        <button className=" font-medium rounded-[25px] mt-5 outline-none border-none px-[30px] py-[12px] text-white bg-[#ff4800]">
+        {/* <button className=" font-medium rounded-[25px] mt-5 outline-none border-none px-[30px] py-[12px] text-white bg-[#ff4800]">
           Contact Us
-        </button>
+        </button> */}
    <div className=" grid md:grid-cols-3  grid-cols-1 mt-10    ">
       <div className="col-span-1 md:border-l-2 border-b-2 md:border-b-0  border-[#ff4800]   py-5 md:px-5 top_card ">
         <Image

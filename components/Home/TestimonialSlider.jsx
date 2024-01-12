@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import Image from "next/image";
 import React from "react";
 import Slider from "react-slick";
 import { RiStarSFill } from "react-icons/ri";
+import Link from "next/link";
 
 const TestimonialSlider = () => {
   const settings = {
@@ -14,49 +15,47 @@ const TestimonialSlider = () => {
   };
 
   return (
-    <div className="testimonial_slider md:my-20 md:p-10  ">
-      <h1 className="text-center md:text-[36px] text-[24px] font-semibold ">
-        What Clients Say About Us
-      </h1>
-      <p className="text-center my-2 ">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-
-      <div className=" md:flex px-5 md:px-0 justify-center  my-10 ">
-        <div className="md:w-[600px] h-full relative">
+    <div className="  ">
+      <div className="">
+        <div className="">
           <Slider {...settings}>
             {[1, 2, 3, 4].map((item, i) => (
-              <div className="light_boxShadow" >
-                <div className="bg-white p-3 md:p-[40px] grid md:grid-cols-4 grid-cols-1">
-                  <div className="col-span-1 flex flex-col gap-y-2 ">
-                    <div className="w-[80px] h-[80px] border-2 p-1">
-                      <Image
-                        width={80}
-                        height={80}
-                        src={"/assets/client/author2.jpg"}
-                      />
-                    </div>
-                    <div>
-                      <h2 className="font-semibold">Steven Smith</h2>
-                      <p className="text-[#ff4800] leading-4  text-[14px]">
-                        CEO at Envato
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-span-3 p-2">
-                    <p className="text-[14px]">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Tempore officiis earum reiciendis a sunt cum dolorum quia
-                      nisi soluta repellendus.
+              <div class="relative bg-white h-80 shadow-lg px-6 py-6 rounded-xl">
+                <img
+                  alt=""
+                  loading="lazy"
+                  width="150"
+                  height="150"
+                  decoding="async"
+                  class="absolute bottom-0 right-2"
+                  src="/assets/services/comma.svg"
+                />
+                <div class="slide-test app__text ">
+                  <h1 className="md:text-[25px] font-semibold">
+                    Amazing experience in SEO services
+                  </h1>
+                  <p>
+                    “ One year ago, we began working with the Mahira Digital
+                    Marketing Company; their staff helped us with our small
+                    business and provided SEO services. We overcame them
+                    together, even though the pandemic and inflation caused a
+                    few periods of difficult business conditions.
+                  </p>
+                  <div class="flex items-center justify-start gap-4 mt-6">
+                    <img
+                      alt=""
+                      loading="lazy"
+                      width="50"
+                      height="50"
+                      src="/assets/services/comma.svg"
+                      // style="color: transparent;"
+                    />
+                    <p class=" font-semibold">
+                      <strong>Tanveer Ahmad</strong> <br />
+                      <Link className="underline" href="https://drheraskinclinic.com/">
+                        Dr Hera’s Skin & Hair Clinic
+                      </Link>
                     </p>
-                    <div className="flex gap-x-1">
-                      {[1, 2, 3, 4, 5].map((item, i) => (
-                        <span>
-                          <RiStarSFill style={{ color: "yellow" }} />
-                        </span>
-                      ))}
-                    </div>
                   </div>
                 </div>
               </div>
